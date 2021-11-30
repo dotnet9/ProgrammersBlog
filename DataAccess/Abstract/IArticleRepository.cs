@@ -1,9 +1,8 @@
 ﻿using Core.DataAccess.Abstract;
 using Entities.Concrete;
 
-namespace DataAccess.Abstract
+namespace DataAccess.Abstract;
+
+public interface IArticleRepository : IEntityRepository<Article>
 {
-    public interface IArticleRepository : IEntityRepository<Article>
-    {
-    }
 }

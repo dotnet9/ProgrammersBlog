@@ -1,35 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Entities.Dtos
+namespace Entities.Dtos;
+
+public class EmailSendDto
 {
-    public class EmailSendDto
-    {
-        [DisplayName("İsminiz")]
-        [Required(ErrorMessage = "{0} alanı zorunludur.")]
-        [MaxLength(60, ErrorMessage = "{0} alanı en fazla {1} karekterden oluşmalıdır.")]
-        [MinLength(5, ErrorMessage = "{0} alanı en az {1} karekterden oluşmalıdır.")]
-        public string Name { get; set; }
-        [DisplayName("E-Posta Adresiniz")]
-        [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "{0} alanı zorunludur.")]
-        [MaxLength(100, ErrorMessage = "{0} alanı en fazla {1} karekterden oluşmalıdır.")]
-        [MinLength(10, ErrorMessage = "{0} alanı en az {1} karekterden oluşmalıdır.")]
-        public string Email { get; set; }
-        [DisplayName("Konu")]
-        [Required(ErrorMessage = "{0} alanı zorunludur.")]
-        [MaxLength(125, ErrorMessage = "{0} alanı en fazla {1} karekterden oluşmalıdır.")]
-        [MinLength(5, ErrorMessage = "{0} alanı en az {1} karekterden oluşmalıdır.")]
-        public string Subject { get; set; }
-        [DisplayName("Mesajınız")]
-        [Required(ErrorMessage = "{0} alanı zorunludur.")]
-        [MaxLength(1500, ErrorMessage = "{0} alanı en fazla {1} karekterden oluşmalıdır.")]
-        [MinLength(20, ErrorMessage = "{0} alanı en az {1} karekterden oluşmalıdır.")]
-        public string Message { get; set; }
-    }
+	[DisplayName("名称")]
+	[Required(ErrorMessage = "{0} 必须的。")]
+	[MaxLength(60, ErrorMessage = "{0} 最多 {1} 字符组成。")]
+	[MinLength(5, ErrorMessage = "{0} 至少 {1} 字符组成。")]
+	public string Name { get; set; }
+
+	[DisplayName("邮件地址")]
+	[DataType(DataType.EmailAddress)]
+	[Required(ErrorMessage = "{0} 必须的。")]
+	[MaxLength(100, ErrorMessage = "{0} 最多 {1} 字符组成。")]
+	[MinLength(10, ErrorMessage = "{0} 至少 {1} 字符组成。")]
+	public string Email { get; set; }
+
+	[DisplayName("主题")]
+	[Required(ErrorMessage = "{0} 必须的。")]
+	[MaxLength(125, ErrorMessage = "{0} 最多 {1} 字符组成。")]
+	[MinLength(5, ErrorMessage = "{0} 至少 {1} 字符组成。")]
+	public string Subject { get; set; }
+
+	[DisplayName("内容")]
+	[Required(ErrorMessage = "{0} 必须的。")]
+	[MaxLength(1500, ErrorMessage = "{0} 最多 {1} 字符组成。")]
+	[MinLength(20, ErrorMessage = "{0} 至少 {1} 字符组成。")]
+	public string Message { get; set; }
 }

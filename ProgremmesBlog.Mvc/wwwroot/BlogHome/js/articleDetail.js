@@ -1,19 +1,19 @@
-﻿$(document).ready(function () {
-    $(function () {
-        $(document).on('click',
-            '#btnSave',
-            function (event) {
+﻿$(document).ready(function() {
+    $(function() {
+        $(document).on("click",
+            "#btnSave",
+            function(event) {
                 event.preventDefault();
-                const form = $('#form-comment-add');
-                const actionUrl = form.attr('action');
+                const form = $("#form-comment-add");
+                const actionUrl = form.attr("action");
                 const dataToSend = form.serialize();
-                $.post(actionUrl, dataToSend).done(function (data) {
+                $.post(actionUrl, dataToSend).done(function(data) {
                     const commentAddAjaxModel = jQuery.parseJSON(data);
                     console.log(commentAddAjaxModel);
-                    const newFormBody = $('.form-card', commentAddAjaxModel.CommentAddPartial);
-                    const cardBody = $('.form-card');
+                    const newFormBody = $(".form-card", commentAddAjaxModel.CommentAddPartial);
+                    const cardBody = $(".form-card");
                     cardBody.replaceWith(newFormBody);
-                    const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
+                    const isValid = newFormBody.find('[name="IsValid"]').val() === "True";
                     if (isValid) {
                         const newSingleComment = `
                    <div class="media mb-4">
@@ -25,25 +25,25 @@
                     </div>`;
                         const newSingleCommentObject = $(newSingleComment);
                         newSingleCommentObject.hide();
-                        $('#comments').append(newSingleCommentObject);
+                        $("#comments").append(newSingleCommentObject);
                         newSingleCommentObject.fadeIn(3000);
                         toastr.success(
                             `Sayın ${commentAddAjaxModel.CommentDto.Comment.CreatedByName
                             } yorumunuz başarıyla eklenmiştir. Bir örneği sizler için karşınıza gelecek. Fakat; yorumunuz onaylandıktan sonra görünür olacaktır.`);
-                        $('#btnSave').prop('disabled', true);
-                        setTimeout(function () {
-                            $('#btnSave').prop('disabled', false);
-                        },
+                        $("#btnSave").prop("disabled", true);
+                        setTimeout(function() {
+                                $("#btnSave").prop("disabled", false);
+                            },
                             15000);
                     } else {
                         let summaryText = "";
-                        $('#validation-summary > ul > li').each(function () {
+                        $("#validation-summary > ul > li").each(function() {
                             let text = $(this).text();
                             summaryText += `*${text}\n`;
                         });
                         toastr.warning(summaryText);
                     }
-                }).fail(function (error) {
+                }).fail(function(error) {
                     console.error(error);
                 });
             });

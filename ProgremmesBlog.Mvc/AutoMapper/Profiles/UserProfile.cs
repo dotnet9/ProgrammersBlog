@@ -2,15 +2,14 @@
 using Entities.Concrete;
 using Entities.Dtos;
 
-namespace ProgrammersBlog.Mvc.AutoMapper.Profiles
+namespace ProgrammersBlog.Mvc.AutoMapper.Profiles;
+
+public class UserProfile : Profile
 {
-    public class UserProfile:Profile
-    {
-        public UserProfile()
-        {
-            CreateMap<UserAddDto, User>();
-            CreateMap<User, UserUpdateDto>();
-            CreateMap<UserUpdateDto, User>();
-        }
-    }
+	public UserProfile()
+	{
+		CreateMap<UserAddDto, User>();
+		CreateMap<User, UserUpdateDto>();
+		CreateMap<UserUpdateDto, User>();
+	}
 }

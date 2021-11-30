@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Entities.Dtos;
+﻿using Entities.Dtos;
 
-namespace ProgrammersBlog.Mvc.Areas.Admin.Models
+namespace ProgrammersBlog.Mvc.Areas.Admin.Models;
+
+public class CategoryAddAjaxViewModel
 {
-    public class CategoryAddAjaxViewModel
-    {
-        public CategoryAddDto CategoryAddDto { get; set; }
-        public string CategoryAddPartial { get; set; }
-        public CategoryDto CategoryDto { get; set; }    
-    }
+	public CategoryAddDto CategoryAddDto { get; set; }
+	public string CategoryAddPartial { get; set; }
+	public CategoryDto CategoryDto { get; set; }
 }

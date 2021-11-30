@@ -3,12 +3,11 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Concrete.EntityFramework.Repositories
+namespace DataAccess.Concrete.EntityFramework.Repositories;
+
+public class EfCommentRepository : EfEntityRepositoryBase<Comment>, ICommentRepository
 {
-    public class EfCommentRepository : EfEntityRepositoryBase<Comment>, ICommentRepository
-    {
-        public EfCommentRepository(DbContext context) : base(context)
-        {
-        }
-    }
+	public EfCommentRepository(DbContext context) : base(context)
+	{
+	}
 }

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Core.Entities.Abstract;
 using Entities.Concrete;
 
-namespace Entities.Dtos
+namespace Entities.Dtos;
+
+public class CategoryListDto : DtoGetBase
 {
-    public class CategoryListDto:DtoGetBase
-    {
-        public IList<Category> Categories { get; set; }
-    }
+	public IList<Category> Categories { get; set; }
 }

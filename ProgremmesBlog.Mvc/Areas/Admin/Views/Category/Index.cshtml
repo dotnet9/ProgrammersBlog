@@ -2,11 +2,15 @@
 @model Entities.Dtos.CategoryListDto
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Kategoriler Index";
+    ViewBag.Title = "分类索引";
 }
 <ol class="breadcrumb mb-3 mt-2">
-    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Category" asp-action="Index">Kategoriler</a></li>
+    <li class="breadcrumb-item">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a>
+    </li>
+    <li class="breadcrumb-item active">
+        <a asp-area="Admin" asp-controller="Category" asp-action="Index">分类</a>
+    </li>
 </ol>
 @if (Model.ResultStatus == ResultStatus.Success)
 {
@@ -14,64 +18,68 @@
     <div class="card mb-4 mt-2">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
-            Kategoriler
+            分类
         </div>
         <div class="card-body">
             <div class="spinner-border" role="status" style="display: none;">
-                <span class="sr-only">Yükleniyor...</span>
+                <span class="sr-only">加载中...</span>
             </div>
             <div class="table-responsive">
                 <table class="table table-bordered" id="categoriesTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Adı</th>
-                            <th>Açıklaması</th>
-                            <th>Aktif Mi?</th>
-                            <th>Silinmiş Mi?</th>
-                            <th>Not</th>
-                            <th>Oluşturulma Tarihi</th>
-                            <th>Oluşturan Kullanıcı Adı</th>
-                            <th>Son Düzenlenme Tarihi</th>
-                            <th>Son Düzenleyen Kullanıcı Adı</th>
-                            <th>İşlemler</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>名称</th>
+                        <th>描述</th>
+                        <th>是否活跃？</th>
+                        <th>删除了吗？</th>
+                        <th>Not</th>
+                        <th>创建日期</th>
+                        <th>创建用户</th>
+                        <th>最后编辑时间</th>
+                        <th>最后编辑用户</th>
+                        <th>İşlemler</th>
+                    </tr>
                     </thead>
                     <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Adı</th>
-                            <th>Açıklaması</th>
-                            <th>Aktif Mi?</th>
-                            <th>Silinmiş Mi?</th>
-                            <th>Not</th>
-                            <th>Oluşturulma Tarihi</th>
-                            <th>Oluşturan Kullanıcı Adı</th>
-                            <th>Son Düzenlenme Tarihi</th>
-                            <th>Son Düzenleyen Kullanıcı Adı</th>
-                            <th>İşlemler</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>名称</th>
+                        <th>描述</th>
+                        <th>是否活跃？</th>
+                        <th>删除了吗？</th>
+                        <th>Not</th>
+                        <th>创建日期</th>
+                        <th>创建用户</th>
+                        <th>最后编辑时间</th>
+                        <th>最后编辑用户</th>
+                        <th>İşlemler</th>
+                    </tr>
                     </tfoot>
                     <tbody>
-                        @foreach (var category in Model.Categories)
-                        {
-                            <tr name="@category.Id">
-                                <td>@category.Id</td>
-                                <td>@category.Name</td>
-                                <td>@category.Description</td>
-                                <td>@(category.IsActive ? "Evet" : "Hayır")</td>
-                                <td>@(category.IsDeleted ? "Evet" : "Hayır")</td>
-                                <td>@category.Note</td>
-                                <td>@category.CreatedDate.ToShortDateString()</td>
-                                <td>@category.CreatedByName</td>
-                                <td>@category.ModifiedDate.ToShortDateString()</td>
-                                <td>@category.ModifiedByName</td>
-                                <td>
-                                    <button class="btn btn-primary btn-sm btn-update" data-id="@category.Id"><span class="fas fa-edit"></span></button>
-                                    <button class="btn btn-danger btn-sm btn-delete" data-id="@category.Id"><span class="fas fa-minus-circle"></span></button>
-                                </td>
-                            </tr>
-                        }
+                    @foreach (var category in Model.Categories)
+                    {
+                        <tr name="@category.Id">
+                            <td>@category.Id</td>
+                            <td>@category.Name</td>
+                            <td>@category.Description</td>
+                            <td>@(category.IsActive ? "是" : "否")</td>
+                            <td>@(category.IsDeleted ? "是" : "否")</td>
+                            <td>@category.Note</td>
+                            <td>@category.CreatedDate.ToShortDateString()</td>
+                            <td>@category.CreatedByName</td>
+                            <td>@category.ModifiedDate.ToShortDateString()</td>
+                            <td>@category.ModifiedByName</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm btn-update" data-id="@category.Id">
+                                    <span class="fas fa-edit"></span>
+                                </button>
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@category.Id">
+                                    <span class="fas fa-minus-circle"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>
@@ -81,10 +89,11 @@
 @if (Model.ResultStatus == ResultStatus.Error)
 {
     <div class="alert alert-danger mt-3">
-        @Model.Message <br />
-        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">tıklayınız.</a>
+        @Model.Message <br/>
+        要返回仪表板页面，请 <a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">点击这里.</a>
     </div>
 }
+
 @section Scripts
 {
     <script src="~/AdminLTE/js/categoryIndex.js" type="application/ecmascript"></script>

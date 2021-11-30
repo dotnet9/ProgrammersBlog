@@ -1,4 +1,4 @@
-using AutoMapper;
+ï»¿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,7 +31,7 @@ namespace ProgrammersBlog.Mvc
             services.Configure<WebsiteInfo>(Configuration.GetSection("WebsiteInfo"));
             services.AddControllersWithViews(options =>
             {
-                options.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(value => "Bu alan boþ geçilmemelidir.");
+                options.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(value => "Bu alan boï¿½ geï¿½ilmemelidir.");
             }).AddRazorRuntimeCompilation().AddJsonOptions(opt =>
             {
                 opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());

@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using Entities.Concrete;
 
-namespace Entities.Dtos
+namespace Entities.Dtos;
+
+public class RoleListDto
 {
-    public class RoleListDto
-    {
-        public IList<Role> Roles { get; set; }
-    }
+	public IList<Role> Roles { get; set; }
 }

@@ -1,9 +1,8 @@
 ﻿using Entities.Concrete;
 
-namespace Entities.Dtos
+namespace Entities.Dtos;
+
+public class CommentDto
 {
-    public class CommentDto
-    {
-        public Comment Comment { get; set; }
-    }
+	public Comment Comment { get; set; }
 }

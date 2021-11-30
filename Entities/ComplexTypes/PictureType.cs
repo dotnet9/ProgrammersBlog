@@ -1,9 +1,7 @@
-﻿
-namespace Entities.ComplexTypes
+﻿namespace Entities.ComplexTypes;
+
+public enum PictureType
 {
-    public enum PictureType
-    {
-        User = 0,
-        Post = 1
-    }
+	User = 0,
+	Post = 1
 }

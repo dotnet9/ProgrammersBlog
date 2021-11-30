@@ -1,10 +1,9 @@
 ﻿using Core.Entities.Abstract;
 using Entities.Concrete;
 
-namespace Entities.Dtos
+namespace Entities.Dtos;
+
+public class UserDto : DtoGetBase
 {
-   public class UserDto:DtoGetBase
-    {
-        public User User { get; set; }
-    }
+	public User User { get; set; }
 }

@@ -5,61 +5,57 @@ using System.ComponentModel.DataAnnotations;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 
-namespace ProgrammersBlog.Mvc.Areas.Admin.Models
+namespace ProgrammersBlog.Mvc.Areas.Admin.Models;
+
+public class ArticleUpdateViewModel
 {
-    public class ArticleUpdateViewModel
-    {
-        [Required]
-        public int Id { get; set; }
+	[Required] public int Id { get; set; }
 
-        [DisplayName("Başlık")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MaxLength(100, ErrorMessage = "{0} alanı {1} karekterden büyük olmamalıdır.")]
-        [MinLength(5, ErrorMessage = "{0} alanı {1} karekterden küçük olmamalıdır.")]
-        public string Title { get; set; }
+	[DisplayName("标题")]
+	[Required(ErrorMessage = "{0} 字段不应为空。")]
+	[MaxLength(100, ErrorMessage = "{0} 区域 {1} 它不应大于一个字符。")]
+	[MinLength(5, ErrorMessage = "{0} 区域 {1} 它不应少于一个字符。")]
+	public string Title { get; set; }
 
-        [DisplayName("İçerik")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MinLength(20, ErrorMessage = "{0} alanı {1} karekterden küçük olmamalıdır.")]
-        public string Content { get; set; }
+	[DisplayName("内容")]
+	[Required(ErrorMessage = "{0} 字段不应为空。")]
+	[MinLength(20, ErrorMessage = "{0} 区域 {1} 它不应少于一个字符。")]
+	public string Content { get; set; }
 
-        [DisplayName("Küçük Resim")]
-        public string ThumbNail { get; set; }
+	[DisplayName("缩略图")] public string ThumbNail { get; set; }
 
-        [DisplayName("Küçük Resim Ekle")]
-        public IFormFile ThumbnailFile { get; set; }
+	[DisplayName("缩略图文件")] public IFormFile ThumbnailFile { get; set; }
 
-        [DisplayName("Tarih")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime Date { get; set; }
+	[DisplayName("日期")]
+	[Required(ErrorMessage = "{0} 字段不应为空。")]
+	[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+	public DateTime Date { get; set; }
 
-        [DisplayName("Yazar Adı")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MaxLength(50, ErrorMessage = "{0} alanı {1} karekterden büyük olmamalıdır.")]
-        public string SeoAuthor { get; set; }
+	[DisplayName("SEO作者")]
+	[Required(ErrorMessage = "{0} 字段不应为空。")]
+	[MaxLength(50, ErrorMessage = "{0} 区域 {1} 它不应大于一个字符。")]
+	public string SeoAuthor { get; set; }
 
-        [DisplayName("Makale Açıklaması")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MaxLength(150, ErrorMessage = "{0} alanı {1} karekterden büyük olmamalıdır.")]
-        public string SeoDescription { get; set; }
+	[DisplayName("SEO描述")]
+	[Required(ErrorMessage = "{0} 字段不应为空。")]
+	[MaxLength(150, ErrorMessage = "{0} 区域 {1} 它不应大于一个字符。")]
+	public string SeoDescription { get; set; }
 
-        [DisplayName("Makale Etiketleri")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MaxLength(70, ErrorMessage = "{0} alanı {1} karekterden büyük olmamalıdır.")]
-        [MinLength(5, ErrorMessage = "{0} alanı {1} karekterden küçük olmamalıdır.")]
-        public string SeoTags { get; set; }
+	[DisplayName("SEO标签")]
+	[Required(ErrorMessage = "{0} 字段不应为空。")]
+	[MaxLength(70, ErrorMessage = "{0} 区域 {1} 它不应大于一个字符。")]
+	[MinLength(5, ErrorMessage = "{0} 区域 {1} 它不应少于一个字符。")]
+	public string SeoTags { get; set; }
 
-        [DisplayName("Kategori")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        public int CategoryId { get; set; }
-        public IList<Category> Categories { get; set; }
+	[DisplayName("分类")]
+	[Required(ErrorMessage = "{0} 字段不应为空。")]
+	public int CategoryId { get; set; }
 
-        [DisplayName("Aktif mi?")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        public bool IsActive { get; set; }
+	public IList<Category> Categories { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
-    }
+	[DisplayName("是否活跃")]
+	[Required(ErrorMessage = "{0} 字段不应为空。")]
+	public bool IsActive { get; set; }
+
+	[Required] public int UserId { get; set; }
 }

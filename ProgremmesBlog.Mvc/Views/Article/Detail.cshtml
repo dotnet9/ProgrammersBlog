@@ -1,10 +1,12 @@
 ﻿@using Entities.Dtos
 @model ProgrammersBlog.Mvc.Models.ArticleDetailViewModel
-@{ Layout = "_ArticleLayout ";
+@{
+    Layout = "_ArticleLayout ";
     ViewBag.Title = "Article.Title";
     ViewBag.Description = Model.ArticleDto.Article.SeoDescription;
     ViewBag.Author = Model.ArticleDto.Article.SeoAuthor;
-    ViewBag.Tags = Model.ArticleDto.Article.SeoTags; }
+    ViewBag.Tags = Model.ArticleDto.Article.SeoTags;
+}
 
 
 <!-- Post Content Column -->
@@ -15,7 +17,7 @@
 
     <!-- Author -->
     <p class="lead">
-        @Model.ArticleDto.Article.User.UserName tarafından @Model.ArticleDto.Article.Date.ToShortDateString() tarihinde paylaşılmıştır.
+        @Model.ArticleDto.Article.User.UserName 经过 @Model.ArticleDto.Article.Date.ToShortDateString() 共享。
     </p>
 
 
@@ -28,26 +30,29 @@
     <hr>
 
     <!-- Post Content -->
-    @Html.Raw(@Model.ArticleDto.Article.Content)
+    @Html.Raw(Model.ArticleDto.Article.Content)
 
     <hr>
 
-    <p class="text-center">Okunma Sayısı :<span class="badge badge-info">@Model.ArticleDto.Article.ViewsCount</span> Yorum Sayısı: <span class="badge badge-danger">@Model.ArticleDto.Article.CommentCount</span></p>
+    <p class="text-center">读取计数 :<span class="badge badge-info">@Model.ArticleDto.Article.ViewsCount</span> 评论数: <span class="badge badge-danger">@Model.ArticleDto.Article.CommentCount</span></p>
     <!-- Comments Form -->
-    <partial name="~/Views/Comment/_CommentAddPartial.cshtml" model="new CommentAddDto{ArticleId = Model.ArticleDto.Article.Id}" />
+    <partial name="~/Views/Comment/_CommentAddPartial.cshtml" model="new CommentAddDto { ArticleId = Model.ArticleDto.Article.Id }"/>
     <div id="comments">
         @foreach (var comment in Model.ArticleDto.Article.Comments)
-        {<!-- Single Comment -->
-                            <div class="media mb-4">
-                                <img class="d-flex mr-3 rounded-circle" src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
-                                <div class="media-body">
-                                    <h5 class="mt-0">@comment.CreatedByName</h5>
-                                    @comment.Text
-                                </div>
-                            </div>}
+        {
+            <!-- Single Comment -->
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0">@comment.CreatedByName</h5>
+                    @comment.Text
+                </div>
+            </div>
+        }
     </div>
 </div>
-<partial name="_ArticleDetailRightSideBarPartial" model="@Model.ArticleDetailRightSideBarViewModel" />
+<partial name="_ArticleDetailRightSideBarPartial" model="@Model.ArticleDetailRightSideBarViewModel"/>
+
 @section Scripts
 {
     <script src="~/BlogHome/js/articleDetail.js" type="text/ecmascript"></script>

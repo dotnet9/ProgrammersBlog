@@ -1,12 +1,18 @@
 ﻿@model ProgrammersBlog.Mvc.Areas.Admin.Models.ArticleAddViewModel
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Makale Ekle";
+    ViewBag.Title = "添加文章";
 }
 <ol class="breadcrumb mb-3 mt-2">
-    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Article" asp-action="Index">Makaleler</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Article" asp-action="Add">Ekle</a></li>
+    <li class="breadcrumb-item">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a>
+    </li>
+    <li class="breadcrumb-item active">
+        <a asp-area="Admin" asp-controller="Article" asp-action="Index">文章</a>
+    </li>
+    <li class="breadcrumb-item active">
+        <a asp-area="Admin" asp-controller="Article" asp-action="Add">添加</a>
+    </li>
 </ol>
 <form asp-controller="Article" asp-action="Add" method="post" enctype="multipart/form-data">
     <div class="row mt-2">
@@ -14,7 +20,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
-                        <input type="text" id="articleTitle" class="form-control" placeholder="Makale Başlığı" asp-for="Title" />
+                        <input type="text" id="articleTitle" class="form-control" placeholder="文章标题" asp-for="Title"/>
                         <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -27,7 +33,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    Temel Konfigürasyonlar
+                    基本配置
                 </div>
                 <div class="card-body">
                     <div class="form-group">
@@ -39,21 +45,21 @@
                     </div>
                     <div class="form-group">
                         <label for="datepicker" asp-for="Date"></label>
-                        <input type="text" id="datepicker" class="form-control" value="@DateTime.Now.ToShortDateString()" asp-for="Date" />
+                        <input type="text" id="datepicker" class="form-control" value="@DateTime.Now.ToShortDateString()" asp-for="Date"/>
                         <span asp-validation-for="Date" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label for="thumbnailUpload" asp-for="ThumbnailFile"></label>
-                        <input type="file" id="thumbnailUpload" accept="image/*" class="form-control" asp-for="ThumbnailFile" />
+                        <input type="file" id="thumbnailUpload" accept="image/*" class="form-control" asp-for="ThumbnailFile"/>
                         <span asp-validation-for="ThumbnailFile" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="checkbox" id="isAcive" class="form-check-input" asp-for="IsActive" />
+                        <input type="checkbox" id="isAcive" class="form-check-input" asp-for="IsActive"/>
                         <label for="isAcive" class="form-check-label" asp-for="IsActive"></label>
                         <span asp-validation-for="IsActive" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-4">保存</button>
                     </div>
                 </div>
             </div>
@@ -61,18 +67,18 @@
         <div class="col-md-12 mt-2">
             <div class="card">
                 <div class="card-header">
-                    SEO Optimizasyonu
+                    搜索引擎优化
                 </div>
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="seoWriter" asp-for="SeoAuthor"></label>
-                            <input type="text" id="seoWriter" class="form-control" asp-for="SeoAuthor" />
+                            <input type="text" id="seoWriter" class="form-control" asp-for="SeoAuthor"/>
                             <span asp-validation-for="SeoAuthor" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="seoTags" asp-for="SeoTags"></label>
-                            <input type="text" id="seoTags" class="form-control" asp-for="SeoTags" />
+                            <input type="text" id="seoTags" class="form-control" asp-for="SeoTags"/>
                             <span asp-validation-for="SeoTags" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-12">
@@ -86,6 +92,7 @@
         </div>
     </div>
 </form>
+
 @section Scripts
 {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js" integrity="sha512-t4CFex/T+ioTF5y0QZnCY9r5fkE8bMf9uoNH2HNSwsiTaMQMO0C9KbKPMvwWNdVaEO51nDL3pAzg4ydjWXaqbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -97,13 +104,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/AdminLTE/js/articleAdd.js" type="application/ecmascript"></script>
 }
+
 @section Styles
 {
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css" integrity="sha512-nwpMzLYxfwDnu68Rt9PqLqgVtHkIJxEPrlu3PfTfLQKVgBAlTKDmim1JvCGNyNRtyvCx1nNIVBfYm8UZotWd4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/colors/ui/trumbowyg.colors.min.css" integrity="sha512-aE073TwNBnCl/Y99fSlH/29MS7CzKgrliM9rTVDURKiiGvapXN+hTmept74zsbcadVEzJ2RtfcyEyzySiYeJuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/emoji/ui/trumbowyg.emoji.min.css" integrity="sha512-xpR3G7LZbpAnoUgES2Xu2Z/mK8NwejLjJpNHQtmdU36yGP2AS5kgpflPwv6vEurEeruDcghOtHkWNsOkwVx2ig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/select2@@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/excite-bike/jquery-ui.min.css" integrity="sha512-U0TWwF2UmIE98Ch5Dl/ReSZL+pRSyoAxoUI4D0dYeTgN6O/ScvmD4mHXHNS5NzOwE9ldInwDyeDF/N9OvoHZyQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/excite-bike/theme.min.css" integrity="sha512-tmcUkDLFNColsewgPHGkSaG/uYyT+7tRLS5eSh/u/dGpfYAG8861oLz8HZIbj4SReFyfTzAP/mM08tJHGgysFQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="~/AdminLTE/css/select2-bootstrap4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css" integrity="sha512-nwpMzLYxfwDnu68Rt9PqLqgVtHkIJxEPrlu3PfTfLQKVgBAlTKDmim1JvCGNyNRtyvCx1nNIVBfYm8UZotWd4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/colors/ui/trumbowyg.colors.min.css" integrity="sha512-aE073TwNBnCl/Y99fSlH/29MS7CzKgrliM9rTVDURKiiGvapXN+hTmept74zsbcadVEzJ2RtfcyEyzySiYeJuA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/emoji/ui/trumbowyg.emoji.min.css" integrity="sha512-xpR3G7LZbpAnoUgES2Xu2Z/mK8NwejLjJpNHQtmdU36yGP2AS5kgpflPwv6vEurEeruDcghOtHkWNsOkwVx2ig==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://cdn.jsdelivr.net/npm/select2@@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/excite-bike/jquery-ui.min.css" integrity="sha512-U0TWwF2UmIE98Ch5Dl/ReSZL+pRSyoAxoUI4D0dYeTgN6O/ScvmD4mHXHNS5NzOwE9ldInwDyeDF/N9OvoHZyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/excite-bike/theme.min.css" integrity="sha512-tmcUkDLFNColsewgPHGkSaG/uYyT+7tRLS5eSh/u/dGpfYAG8861oLz8HZIbj4SReFyfTzAP/mM08tJHGgysFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="~/AdminLTE/css/select2-bootstrap4.min.css" rel="stylesheet"/>
 }

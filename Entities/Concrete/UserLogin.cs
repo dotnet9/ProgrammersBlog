@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Entities.Concrete
+namespace Entities.Concrete;
+
+public class UserLogin : IdentityUserLogin<int>
 {
-  public  class UserLogin:IdentityUserLogin<int>
-    {
-    }
 }
